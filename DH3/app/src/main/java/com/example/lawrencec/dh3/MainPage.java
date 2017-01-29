@@ -12,11 +12,13 @@ import android.widget.Spinner;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    int flag;
 
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        flag = 0;
         setContentView(R.layout.activity_main_page);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -26,20 +28,21 @@ public class MainPage extends AppCompatActivity implements AdapterView.OnItemSel
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        if (flag == 1){
+            Intent intent = new Intent(MainPage.this, MainActivity.class);
+            intent.putExtra("SPINNER_SELECTED_POSITION", position);
+            startActivity(intent);
+        }
+        flag = 1;
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
-
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }
