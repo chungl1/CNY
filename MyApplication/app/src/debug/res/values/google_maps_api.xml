@@ -1,0 +1,19 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=51:A4:2F:FA:F7:00:DA:AF:47:60:10:04:51:18:EB:4E:33:5C:81:63%3Bcom.example.barick.myapplication
+
+    You can also add your credentials to an existing key, using this line:
+    51:A4:2F:FA:F7:00:DA:AF:47:60:10:04:51:18:EB:4E:33:5C:81:63;com.example.barick.myapplication
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyA_iHyQW91_xM_GQ9nj_2sQZUBq3J9y9-Y</string>
+</resources>
