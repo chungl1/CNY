@@ -1,13 +1,56 @@
 package com.example.lawrencec.dh3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-public class MainPage extends AppCompatActivity {
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
+public class MainPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+//    int flag;
+    int selectedPosition;
+
+    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        flag = 0;
+        setContentView(R.layout.activity_main_page);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.food_options, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (position != 0){
+            Intent intent = new Intent(MainPage.this, MainActivity.class);
+            intent.putExtra("SPINNER_SELECTED_POSITION", position);
+            startActivity(intent);
+            selectedPosition = position;
+        } else {
+            selectedPosition = 0;
+        }
+//        flag = 1;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        if (selectedPosition != 0) {
+            Intent intent = new Intent(MainPage.this, MainActivity.class);
+            intent.putExtra("SPINNER_SELECTED_POSITION", selectedPosition);
+            startActivity(intent);
+        }
     }
 }

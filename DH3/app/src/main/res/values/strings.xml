@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DH3</string>
+    <string-array name="food_options">
+        <item>--Select One--</item>
+        <item>Low Sugar</item>
+        <item>Low Salt</item>
+        <item>Vegetarian</item>
+    </string-array>
+    <string-array name="vegetarian">
+        <item>Bridges Cafe</item>
+        <item>Rawlicious</item>
+        <item></item>
+    </string-array>
 </resources>
