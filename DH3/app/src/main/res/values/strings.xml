@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DH3</string>
+    <string-array name="food_options">
+        <item>No Sugar</item>
+        <item>No Salt</item>
+        <item>Vegetarian</item>
+    </string-array>
 </resources>
